@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import CourseCard from '../components/CourseCard';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Spinner from '../components/Spinner';
 import { Course } from '../Course';
+import delay from '../delay';
 
 
 interface State{
     courses: Course[];
+    load:boolean;
   }
   
   export default class CoursePage extends Component<{},State>{
@@ -15,13 +18,20 @@ interface State{
       super(props);
   
       this.state={
-          courses:[]
+          courses:[],
+          load: true
       }
     }
   
       async loadCourses(){
+        
         let response=await fetch('http://localhost:3000/courses')
         let data=await response.json() as Course[]
+        await delay(2000)
+        if(data)
+        {
+          this.setState({load:false});
+        }
         this.setState({
            courses: data,
         })
@@ -30,6 +40,8 @@ interface State{
     
     componentDidMount() {
       
+
+
       this.loadCourses()
       
       
@@ -40,9 +52,9 @@ interface State{
 
         return <div>
             <Header/>
-        {this.state.courses.map(course => <CourseCard course={course}/>
+      {this.state.load ? <Spinner/> : this.state.courses.map(course => <CourseCard course={course}/>
         )}
-
+        <Footer/>
         </div>
 
     }

@@ -19,7 +19,7 @@ render(): ReactNode {
            <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" alt="" style={{width:'100px',height:'100px', marginLeft:'1000px'}} />
           <div style={{marginLeft:'1240px', textAlign: 'center'}}>
           <h3>Vendég</h3>
-          <a href="" className='btn btn-success grow' style={{marginRight:'7px'}}>Bejelenkezés</a>
+          <Link className='btn btn-success grow' style={{marginRight:'7px'}} to='/login'>Bejelenkezés</Link>
           <Link className='btn btn-success grow' to='/register'>Regisztrálás</Link>
           </div>
           

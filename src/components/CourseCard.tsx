@@ -22,12 +22,12 @@ return  <div style={{textAlign:'center'}}>
 <center>
 <div className="card" style={{width: '800px', marginTop:'5px'}}>
         
-{this.props.course.cover_photo == '' ? null : <img className="card-image-top" src={this.props.course.cover_photo} alt="Borítókép ehez a kurzushoz nem lett feltöltve" style={{width: '799px'}}/>}
-<div className="card-body">
-<h4 className="card-title" style={{textAlign: 'center'}}>{this.props.course.course_name}</h4>
-<p className="card-text" style={{textAlign: 'center'}}>{this.props.course.course_description}</p>
-<p className="card-text" style={{textAlign: 'center'}}>{this.props.course.subject}</p>
-<p className="card-text" style={{textAlign: 'center'}}>Témakör:{this.props.course.topic}</p>
+{this.props.course.cover_photo == '' ? <p>Borítókép ehez a kurzushoz nem lett feltöltve</p> : <img className="card-image-top" src={this.props.course.cover_photo} alt="Borítókép ehez a kurzushoz nem lett feltöltve" style={{width: '799px'}}/>}
+<div className="card-body courseCard">
+<h4 className="card-title">{this.props.course.course_name}</h4>
+<p className="card-text">{this.props.course.course_description}</p>
+<p className="card-text">{this.props.course.subject}</p>
+<p className="card-text">Témakör:{this.props.course.topic}</p>
 <a href="#" className="btn btn-success grow">Jelentkezz!</a>
 </div>
 

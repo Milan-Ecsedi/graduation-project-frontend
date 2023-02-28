@@ -6,8 +6,10 @@ import Footer from './components/Footer';
 import "bootstrap/dist/css/bootstrap.css"
 import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
-import Register from './Pages/Register';
+import RegisterPage from './Pages/RegisterPage';
 import CoursePage from './Pages/CoursePage';
+import LoginPage from './Pages/LoginPage';
+
 
 interface State{
   courses: Course[];
@@ -44,10 +46,11 @@ render(): React.ReactNode{
  
  return <div>
   <Routes>
-    <Route path='/register' element={<Register></Register>}></Route>
-<Route path='/' element={<CoursePage></CoursePage>}></Route>
+    <Route path='/' element={<CoursePage></CoursePage>}></Route>
+    <Route path='/register' element={<RegisterPage></RegisterPage>}></Route>
+    <Route path='/login' element={<LoginPage></LoginPage>}></Route>
+    <Route path='/*' element={<p style={{fontSize:'50px'}}>Ez az oldal nem létezik, biztos hogy jól írtad be az url-t? :P</p>}></Route>
   </Routes>
-  <Footer/>
   </div>
 }
 }

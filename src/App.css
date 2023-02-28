@@ -25,34 +25,51 @@ footer p {
     margin: 0;
 }
 
-.RegisterPage{
+.FormPage{
 
 text-align: center;
 font-size:25px;
 
 }
 
-.RegisterPage input{
+.FormPage input{
 
     border-color:#10d49c ;
     border-radius: 30px;
 
 }
-.RegisterPage input:hover{
 
-    border-width: 4px;
-
-}
-.RegisterPage h2{
+.FormPage h2{
 
     color: rgb(150, 128, 2);
 
 }
 
-.RegisterPage footer{
+.FormPage a{
+
+    color: #10d49c;
+    text-decoration: none;
+}
+.FormPage h5{
+
+    color: #ed1919;
+   
+
+
+}
+
+.FormPage footer{
 
  position: fixed;
-  bottom: 0;
+ bottom: 0;
   
+}
+
+.courseCard{
+    text-align: center;
+}
+.courseCard img{
+
+    width: 799px;
 
 }
