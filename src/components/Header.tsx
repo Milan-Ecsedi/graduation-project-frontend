@@ -1,4 +1,5 @@
 import { Component, ReactNode } from "react";
+import { Link } from "react-router-dom";
 import Logo from '../images/gritos_logo.png';
 
 
@@ -9,9 +10,9 @@ export default class Header extends Component<{}>{
 render(): ReactNode {
     
 
-    return  <header style={{backgroundColor:'rgb(16, 212, 158)',borderRadius:'5px'}}>
+    return  <header style={{backgroundColor:'rgb(16, 212, 158)',borderRadius:'7px'}}>
 
-    <nav style={{border:'solid black 3px'}}>
+    
     
             <img src={Logo} alt="" style={{marginLeft:'25px', marginTop:'10px'}} />
          
@@ -19,10 +20,10 @@ render(): ReactNode {
           <div style={{marginLeft:'1240px', textAlign: 'center'}}>
           <h3>Vendég</h3>
           <a href="" className='btn btn-success grow' style={{marginRight:'7px'}}>Bejelenkezés</a>
-          <a href="" className='btn btn-success grow'>Regisztrálás</a>
+          <Link className='btn btn-success grow' to='/register'>Regisztrálás</Link>
           </div>
           
-    </nav>
+    
       </header>
 
 }

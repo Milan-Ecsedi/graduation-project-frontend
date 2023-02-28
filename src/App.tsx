@@ -5,6 +5,9 @@ import CourseCard from './components/CourseCard';
 import Footer from './components/Footer';
 import "bootstrap/dist/css/bootstrap.css"
 import Header from './components/Header';
+import { Route, Routes } from 'react-router-dom';
+import Register from './Pages/Register';
+import CoursePage from './Pages/CoursePage';
 
 interface State{
   courses: Course[];
@@ -38,17 +41,12 @@ componentDidMount() {
   
 }
 render(): React.ReactNode{
-  
-  //rgb(164, 253, 204)
-  //rgb(113, 173, 254) 
-console.log(this.state.courses);
-  return <div>
-    <Header/>
-  
-
-{this.state.courses.map(course => <CourseCard course={course}/>
-  )}
  
+ return <div>
+  <Routes>
+    <Route path='/register' element={<Register></Register>}></Route>
+<Route path='/' element={<CoursePage></CoursePage>}></Route>
+  </Routes>
   <Footer/>
   </div>
 }
