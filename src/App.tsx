@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Course} from './Course';
-import CourseCard from './components/CourseCard';
-import Footer from './components/Footer';
 import "bootstrap/dist/css/bootstrap.css"
-import Header from './components/Header';
 import { Route, Routes } from 'react-router-dom';
 import RegisterPage from './Pages/RegisterPage';
 import CoursePage from './Pages/CoursePage';

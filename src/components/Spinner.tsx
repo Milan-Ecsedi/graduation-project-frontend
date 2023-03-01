@@ -1,4 +1,4 @@
-import { Component, ReactNode } from "react";
+import { Component} from "react";
 import spinner from "../images/spinner.gif"
 
 export default class Spinner extends Component{

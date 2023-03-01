@@ -1,4 +1,4 @@
-import { Component, ReactNode } from "react";
+import { Component} from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Logo from "../images/gritos_logo.png"

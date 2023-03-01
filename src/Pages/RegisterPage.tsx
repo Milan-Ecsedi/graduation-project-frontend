@@ -44,14 +44,14 @@ handleRegister=async()=>{
     },
     body:JSON.stringify(data),
     });
-    
+    if(response.ok){
     this.setState({
         regUser:'',
         regEmail:'',
         regPass:''
     })
     this.setState({errormess:'Sikeres regisztráció'})
-    
+}
 }
 
 }
