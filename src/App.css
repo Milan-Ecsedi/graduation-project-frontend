@@ -1,7 +1,7 @@
 body{
-background-color: #e5e5f7;
+background-color: #282828; 
 opacity: 0.8;
-background-image: radial-gradient(#ed1919 0.5px, #e5e5f7 0.5px);
+background-image: radial-gradient(#ed1919 0.5px, #e5e5f7 0.5px); /*#ed1919 #e5e5f7*/
 background-size: 10px 10px;
 }
 

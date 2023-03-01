@@ -22,7 +22,7 @@ return  <div style={{textAlign:'center'}}>
 <center>
 <div className="card" style={{width: '800px', marginTop:'5px'}}>
         
-{this.props.course.cover_photo === '' ? <p>Borítókép ehez a kurzushoz nem lett feltöltve</p> : <img className="card-image-top" src={this.props.course.cover_photo} alt="Borítókép ehez a kurzushoz nem lett feltöltve" style={{width: '799px'}}/>}
+{this.props.course.cover_photo === '' ? <p>Borítókép ehez a kurzushoz nem lett feltöltve</p> : <img className="card-image-top" src={this.props.course.cover_photo} alt="Borítókép ehez a kurzushoz nem lett feltöltve"/>}
 <div className="card-body courseCard">
 <h4 className="card-title">{this.props.course.course_name}</h4>
 <p className="card-text">{this.props.course.course_description}</p>

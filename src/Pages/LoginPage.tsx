@@ -16,7 +16,7 @@ render() {
     <p>Felhasználó név:</p>
     <input type="text" />
     <p>Jelszó:</p>
-    <input type="password" /> <br />
+    <input type="password" /> <br/>
 
     <button className='btn btn-success grow'>Bejelentkezés</button>
     <p>Nincs még Fiókod?<Link to='/register'>Itt</Link> elkészítheted</p>
