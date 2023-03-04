@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
+import MessageBox from "../components/MessageBox";
 import Logo from '../images/gritos_logo.png';
 import { ResponseMess } from "../response";
 
@@ -93,7 +94,7 @@ export default class RegisterPage extends Component<{}, State>{
             <p>Jelszó mégegyszer:</p>
             <input type={this.state.showpw} value={this.state.regPass2} onChange={e => this.setState({ regPass2: e.currentTarget.value })} /><br />
             <button className='btn btn-success grow' onClick={this.handleRegister}>Regisztrálás</button>
-            <p style={this.state.message[0] === 'Sikeres regisztráció' ? { color: 'green' } : { color: 'red' }}>{this.state.message}</p>
+            <MessageBox message={this.state.message}></MessageBox>
             <p>Van már Fiókod?<Link to='/login'>Itt</Link> bejelentkezhetsz</p>
 
             <Footer />
