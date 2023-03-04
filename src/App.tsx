@@ -25,7 +25,7 @@ export default class App extends Component<{},State>{
 
 
 async loadCourses(){
-    let response=await fetch('http://localhost:3000/courses')
+    let response=await fetch('http://localhost:3000/course/list')
     let data=await response.json() as Course[]
     this.setState({
        courses: data,

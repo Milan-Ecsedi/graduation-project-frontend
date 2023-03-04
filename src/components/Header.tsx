@@ -10,9 +10,9 @@ export default class Header extends Component<{}>{
 render(): ReactNode {
     
 
-    return  <header style={{backgroundColor:'rgb(16, 212, 158)',borderRadius:'7px'}}>
+    return  <header style={{backgroundColor:'rgb(16, 212, 158)', borderRadius:'7px'}}>
 
-    
+{/* rgb(16, 212, 158) */}
     
             <img src={Logo} alt="" style={{marginLeft:'25px', marginTop:'10px'}} />
          
