@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Why is this project has been created
+
+We wanted to make an application where the people can be students and teachers at the same time
+Everyone can teach and learn from other people.
+
+## How can i learn
+
+You register an Gritos account, our backend makes it easy. You log in and then you can sign up to various courses.
+The courses has starting date so you must sign up before it expires. 
+
+## I want to teach various subjects, how can i publish my courses
+
+Then you must download our desktop application. For more, see the graduation desktop repository.
+Attention.: Your Gritos account must have an Moderator/Admin role. 
+
+## Can i use the app on my phone
+
+You can but the app is not so responsive right now...We recommend to download our mobile app.
+Available on android. 
+
+# React things
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
