@@ -28,6 +28,7 @@ return  <div style={{textAlign:'center'}}>
 <p className="card-text">{this.props.course.course_description}</p>
 <p className="card-text">{this.props.course.subject}</p>
 <p className="card-text">Témakör:{this.props.course.topic}</p>
+<p className="card-text">Kurzus kezdési ideje: {this.props.course.starting_date}</p>
 <button className="btn btn-success grow">Jelentkezz!</button>
 </div>
 

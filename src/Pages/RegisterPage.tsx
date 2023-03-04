@@ -4,6 +4,8 @@ import Footer from "../components/Footer";
 import MessageBox from "../components/MessageBox";
 import Logo from '../images/gritos_logo.png';
 import { ResponseMess } from "../response";
+import "bootstrap/dist/css/bootstrap.css"
+
 
 interface State {
     message: string[];
@@ -84,19 +86,21 @@ export default class RegisterPage extends Component<{}, State>{
 
             <img src={Logo} alt="Gritos logo" />
             <h2>Learn with us</h2>
-
+            <center>
+            <div className="card" style={{width: '400px', marginTop:'5px'}}>
             <p>Felhasználó név:</p>
             <input type='text' value={this.state.regUser} onChange={e => this.setState({ regUser: e.currentTarget.value })} />
             <p>Email:</p>
             <input type="text" value={this.state.regEmail} onChange={e => this.setState({ regEmail: e.currentTarget.value })} />
             <p>Jelszó:</p>
-            <input type={this.state.showpw} value={this.state.regPass} onChange={e => this.setState({ regPass: e.currentTarget.value })} />
+            <input type={this.state.showpw} value={this.state.regPass} onChange={e => this.setState({ regPass: e.currentTarget.value })}/>
             <p>Jelszó mégegyszer:</p>
             <input type={this.state.showpw} value={this.state.regPass2} onChange={e => this.setState({ regPass2: e.currentTarget.value })} /><br />
             <button className='btn btn-success grow' onClick={this.handleRegister}>Regisztrálás</button>
             <MessageBox message={this.state.message}></MessageBox>
             <p>Van már Fiókod?<Link to='/login'>Itt</Link> bejelentkezhetsz</p>
-
+            </div>
+            </center>
             <Footer />
         </div>
 
