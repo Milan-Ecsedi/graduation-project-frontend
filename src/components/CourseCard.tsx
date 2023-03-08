@@ -1,6 +1,7 @@
 import { Component, ReactNode } from "react";
 import "bootstrap/dist/css/bootstrap.css"
 import { Course } from "../Course";
+import { Link } from "react-router-dom";
 
 
 
@@ -12,6 +13,7 @@ interface Props{
 
 
 export default class CourseCard extends Component<Props>{
+
 
 
  
@@ -28,8 +30,8 @@ return  <div style={{textAlign:'center'}}>
 <p className="card-text">{this.props.course.course_description}</p>
 <p className="card-text">{this.props.course.subject}</p>
 <p className="card-text">Témakör:{this.props.course.topic}</p>
-<p className="card-text">Kurzus kezdési ideje: {this.props.course.starting_date}</p>
-<button className="btn btn-success grow">Jelentkezz!</button>
+<p className="card-text">Kurzus lejárati ideje: {this.props.course.deadline}</p>
+<Link to={'/course/'+this.props.course.id.toString()} className="btn btn-success grow">Jelentkezz!</Link>
 </div>
 
 

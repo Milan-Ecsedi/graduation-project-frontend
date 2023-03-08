@@ -13,7 +13,7 @@ export default class Header extends Component<{}>{
     render(): ReactNode {
 
 
-        return <header style={{ backgroundColor: 'rgb(16, 212, 158)', borderRadius: '7px' }}>
+        return <header style={{borderRadius: '7px', border:'solid 3px rgb(27, 163, 242)', backgroundColor:'rgb(27, 163, 210)'}}>
 
             {/* rgb(16, 212, 158) */}
             <nav className="navbar navbar-expand-lg navbar-light">
@@ -35,7 +35,8 @@ export default class Header extends Component<{}>{
                             <Link className="nav-link" to=''>Oktatóknak</Link>
                         </li>
                         <li className="nav-item">
-                        <Link to='' className="btn btn-warning">Vegyél nekünk egy kávét ☕</Link>
+                        <a href="https://www.patreon.com/Gritos235" className="btn btn-warning">Vegyél nekünk egy kávét ☕</a>
+                        
                         </li>
                         <li className="nav-item" style={{marginLeft:'350px'}}>
                         <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" alt="" style={{width:'60px',height:'60px', marginLeft:'85px'}} />

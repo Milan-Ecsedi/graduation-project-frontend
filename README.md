@@ -3,9 +3,9 @@
 We wanted to make an application where the people can be students and teachers at the same time.
 Everyone can teach and learn from other people.
 
-## How can i learn
+## How can i learns
 
-You register a Gritos account, our backend makes it easy. You log in and then you can sign up to various courses.
+You register a Gritos account, our backend makes it easy. Log in and then you can sign up to various courses.
 The courses has starting date so you must sign up before it expires. 
 
 ## I want to teach various subjects, how can i publish my courses
@@ -15,12 +15,12 @@ Attention.: Your Gritos account must have a Moderator/Admin role.
 
 ## Can i use the app on my phone
 
-You can but the app is not so responsive right now...We recommend to download our mobile app.
+You can but the app is not so responsive right now...We recommend you to download our mobile app.
 Available on android. 
 
 # React things
 
-See below if you are not familiar with react
+See down below if you are not familiar with react
 
 ## Getting Started with Create React App
 

@@ -4,9 +4,10 @@ import {Course} from './Course';
 import "bootstrap/dist/css/bootstrap.css"
 import { Route, Routes } from 'react-router-dom';
 import RegisterPage from './Pages/RegisterPage';
-import CoursePage from './Pages/CoursePage';
 import LoginPage from './Pages/LoginPage';
 import About from './Pages/About';
+import CourseListPage from './Pages/CourseListPage';
+import CoursePage from './Pages/CoursePage';
 
 
 interface State{
@@ -44,12 +45,16 @@ render(): React.ReactNode{
  
  return <div>
   <Routes>
-    <Route path='/' element={<CoursePage></CoursePage>}></Route>
+    <Route path='/' element={<CourseListPage></CourseListPage>}></Route>
+    <Route path='/course/:courseId' element={<CoursePage></CoursePage>}></Route>
     <Route path='/register' element={<RegisterPage></RegisterPage>}></Route>
+
+    
     <Route path='/login' element={<LoginPage></LoginPage>}></Route>
     <Route path='/*' element={<p style={{fontSize:'50px'}}>Ez az oldal nem létezik, biztos hogy jól írtad be az url-t? :P</p>}></Route>
     <Route path='/about' element={<About></About>}></Route>
   </Routes>
+  
   </div>
 }
 }

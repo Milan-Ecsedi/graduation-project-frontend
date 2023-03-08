@@ -5,5 +5,7 @@ export interface Course {
   cover_photo:string;
   subject: string;
   topic:string;
-  starting_date:string;
+  details:string;
+  file_url:string;
+  deadline:string;
   }
