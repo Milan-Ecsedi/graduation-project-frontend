@@ -39,8 +39,10 @@ export default class Header extends Component<{}>{
                         
                         </li>
                         <li className="nav-item" style={{marginLeft:'350px'}}>
+                        <Link to='/profile'>
                         <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png" alt="" style={{width:'60px',height:'60px', marginLeft:'85px'}} />
-          <div style={{textAlign: 'center'}}> 
+                        </Link> 
+         <div style={{textAlign: 'center'}}> 
          <h4>Vendég</h4>
          <Link className='btn btn-success grow' style={{marginRight:'7px'}} to='/login'>Bejelenkezés</Link>
          <Link className='btn btn-success grow' to='/register'>Regisztrálás</Link>

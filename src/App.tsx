@@ -7,7 +7,9 @@ import RegisterPage from './Pages/RegisterPage';
 import LoginPage from './Pages/LoginPage';
 import About from './Pages/About';
 import CourseListPage from './Pages/CourseListPage';
-import CoursePage from './Pages/CoursePage';
+import SelectedCourse from './Pages/CoursePage';
+import paramGet from './paramGet';
+import Profile from './Pages/Profile';
 
 
 interface State{
@@ -33,6 +35,7 @@ async loadCourses(){
        courses: data,
     })
     
+    
 }
 
 componentDidMount() {
@@ -41,17 +44,16 @@ componentDidMount() {
   
   
 }
-render(): React.ReactNode{
- 
+ render(): React.ReactNode{
  return <div>
   <Routes>
     <Route path='/' element={<CourseListPage></CourseListPage>}></Route>
-    <Route path='/course/:courseId' element={<CoursePage></CoursePage>}></Route>
+    <Route path='/course=id/:courseId' element={<SelectedCourse/>}></Route>
     <Route path='/register' element={<RegisterPage></RegisterPage>}></Route>
-
+    <Route path='/profile' element={<Profile></Profile>}></Route>  
     
     <Route path='/login' element={<LoginPage></LoginPage>}></Route>
-    <Route path='/*' element={<p style={{fontSize:'50px'}}>Ez az oldal nem létezik, biztos hogy jól írtad be az url-t? :P</p>}></Route>
+    <Route path='/*' element={<div style={{fontSize:'50px', textAlign:'center'}}>Ez az oldal nem létezik, biztos hogy jól írtad be az url-t? <p style={{fontSize:'500px'}}>🙂</p> </div>}></Route>
     <Route path='/about' element={<About></About>}></Route>
   </Routes>
   
