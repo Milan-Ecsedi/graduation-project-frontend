@@ -32,7 +32,7 @@ handleProfileLoad = async ()=>{
     this.setState({
         username: 'Vendég',
         email:'',
-        profile_pic:'https://www.freeiconspng.com/thumbs/profile-icon-png/am-a-19-year-old-multimedia-artist-student-from-manila--21.png'
+        profile_pic: "../images/base_profile_icon.png"
     })
  } else{
 
@@ -50,7 +50,6 @@ handleProfileLoad = async ()=>{
         password: data.password,
         profile_pic:data.profile_pic
     })
-    console.log(this.state.profile_pic)
 
  }
 
@@ -59,7 +58,7 @@ handleProfileLoad = async ()=>{
 
 componentDidMount(){
     this.handleProfileLoad()
-    
+
 }
 
 

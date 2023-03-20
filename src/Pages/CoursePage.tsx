@@ -30,10 +30,10 @@ export default function CoursePage() {
     <Header></Header>
     <center>
     <div className="card" style={{width: '800px', marginTop:'5px'}}>
-        {course?.cover_photo===''?<p>Ehez a kurzushoz nincs boritó kép</p>:<img src={course?.cover_photo} alt="Kurzus kép" className="card-image-top"/>}
+        {course?.cphoto===''?<p>Ehez a kurzushoz nincs boritó kép</p>:<img src={course?.cphoto} alt="Kurzus kép" className="card-image-top"/>}
         <div className="card-body courseCard">
             <h4 className="card-title">
-            {course?.course_name}
+            {course?.name}
             </h4>
             <p className="card-text">
             {course?.details}
@@ -50,19 +50,3 @@ export default function CoursePage() {
 }
 
 
-{/*export default  function electedCourse(){
-
-
-const {courseId}=useParams();
-
-
-
- let response=await fetch('http://localhost:3000/course/search/'+{courseId})
- let data=await response.json() as Course
-
-
-
-
-
-
-}*/}

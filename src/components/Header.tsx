@@ -1,15 +1,13 @@
 import { Component, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Logo from '../images/gritos_logo.png';
-import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js"
-
-
-
 
 export default class Header extends Component<{}>{
 
 
+    
     render(): ReactNode {
 
 
