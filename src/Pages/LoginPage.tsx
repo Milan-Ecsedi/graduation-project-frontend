@@ -11,8 +11,14 @@ import { TokenObj } from "../token";
 interface State{
     message: string[];
     logEmail: string;
-    logPassword:string;
-    token:string;
+    logPassword:string;    
+}
+interface userData{
+    id:number;
+    username: string;
+    email: string;
+    password: string;
+    profile_pic: string;
 }
 
 export default class LoginPage extends Component<{}, State>{
@@ -22,8 +28,7 @@ export default class LoginPage extends Component<{}, State>{
         this.state={
             logEmail:'',
             logPassword:'',
-            token:'',
-            message:[]
+            message:[],
         }
     }
 
@@ -39,7 +44,7 @@ export default class LoginPage extends Component<{}, State>{
             email: this.state.logEmail,
             password:this.state.logPassword,
         }
-
+        console.log("Send login request");
         let response = await fetch('http://localhost:3000/auth/login',{
             method:'POST',
             headers:{
@@ -47,19 +52,40 @@ export default class LoginPage extends Component<{}, State>{
             },
             body: JSON.stringify(data),
         });
-        
+        console.log(response)
         if(response.ok){
             const res= await response.json() as TokenObj
             
             this.setState({
-                token: res.token,
                 message:['Sikeresen bejelentkezett']
             })
-            localStorage.setItem('token', this.state.token)
+            
+            
+            localStorage.setItem('token', res.token)
+            this.handleUserDataStorageLoad()
         }
+
+
+
     }
 
 }
+
+handleUserDataStorageLoad =  async ()=>{
+
+    let response= await fetch('http://localhost:3000/user/profile',{
+        headers: {'Authorization':'Bearer '+localStorage.getItem('token'),
+        'content-type':'application/json'}
+    })
+
+    const data = await response.json() as userData
+    localStorage.setItem('user.id', data.id.toString())
+    localStorage.setItem('user.name', data.username)
+    localStorage.setItem('user.profile_pic', data.profile_pic)
+   
+ }
+
+
 
 render() {
     
@@ -83,8 +109,8 @@ render() {
     <Footer></Footer>
     </div>
 }
-
-
-
-
 }
+
+
+
+

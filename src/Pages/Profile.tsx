@@ -2,11 +2,9 @@ import { Component } from "react";
 import Footer from "../components/Footer";
 
 interface State{
-    id: number;
-    username: string;
-    password:string;
-    email: string;
-    profile_pic: string;
+    username: string| null;
+    profile_pic: string| null;
+    email:string;
 }
 
 export default class Profile extends Component<{}, State>{
@@ -15,61 +13,40 @@ export default class Profile extends Component<{}, State>{
         super(props)
 
         this.state=({
-            id: 0,
-            username:'',
+            username: '',
             email:'',
-            password:'',
-            profile_pic:''
+            profile_pic: ''
         })
+       
     }
+    
+handleProfileLoad= ()=>{
 
+        if(localStorage.getItem('user.name')|| localStorage.getItem('user.profile_pic')!== null){
+        
+            this.setState({
+            username:localStorage.getItem('user.name'),
+            profile_pic:localStorage.getItem('user.profile_pic')
+        })
+        }
+        else{
+            
+            this.setState({
+                username:'guest',
+                profile_pic:''
+            })
 
-
-handleProfileLoad = async ()=>{
-
-
- if(localStorage.getItem('token')===null){
-    this.setState({
-        username: 'Vendég',
-        email:'',
-        profile_pic: "../images/base_profile_icon.png"
-    })
- } else{
-
-    let response= await fetch('http://localhost:3000/user/profile',{
-        headers: {'Authorization':'Bearer '+localStorage.getItem('token'),
-        'content-type':'application/json'}
-    })
-
-    const data = await response.json() as State
-
-    this.setState({
-        id: data.id,
-        username: data.username,
-        email: data.email,
-        password: data.password,
-        profile_pic:data.profile_pic
-    })
-
- }
-
-
+        }
 }
 
-componentDidMount(){
-    this.handleProfileLoad()
-
-}
-
-
-
+ 
 render(){
 
 
     return <div>
         <div style={{backgroundColor:'white', borderRadius:'10px', textAlign:'center'}}>
-        <img src={this.state.profile_pic} alt="Profil kép" style={{height:'200px', width:'200px' ,borderRadius:'50%'}} />
-        <h3>{this.state.username}</h3>
+        <img src={localStorage.getItem('user.profile_pic')} alt="Profil kép" style={{height:'200px', width:'200px' ,borderRadius:'50%'}} />
+        <h3>{localStorage.getItem('user.name')}</h3>
         <p>{this.state.email}</p>
 
         <button className="btn btn-warning grow">Adatok módosítása</button>

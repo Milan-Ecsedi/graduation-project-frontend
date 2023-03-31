@@ -31,7 +31,7 @@ return  <div style={{textAlign:'center'}}>
 <p className="card-text">{this.props.course.subject}</p>
 <p className="card-text">Témakör:{this.props.course.topic}</p>
 <p className="card-text">Kurzus lejárati ideje: {this.props.course.deadline}</p>
-<Link to={'/course=id/'+this.props.course.id.toString()} className="btn btn-success grow">Jelentkezz!</Link>
+{localStorage.getItem('token') !=='' ? <Link to={'/course=id/'+this.props.course.id.toString()} className="btn btn-success grow">Megtekintés</Link>: <p>Jelentkezz be először</p>}
 </div>
 
 
