@@ -30,7 +30,7 @@ export default function CoursePage() {
     <Header></Header>
     <center>
     <div className="card" style={{width: '800px', marginTop:'5px'}}>
-        {course?.cphoto===''?<p>Ehez a kurzushoz nincs boritó kép</p>:<img src={course?.cphoto} alt="Kurzus kép" className="card-image-top"/>}
+        {course?.cphoto===''? <img src="https://attachment.eab.com/wp-content/uploads/2021/08/Illustration-dei-light-background.png" alt=""/>:<img src={course?.cphoto} alt="Kurzus kép" className="card-image-top"/>}
         <div className="card-body courseCard">
             <h4 className="card-title">
             {course?.name}

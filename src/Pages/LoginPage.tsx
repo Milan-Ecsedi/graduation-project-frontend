@@ -44,7 +44,6 @@ export default class LoginPage extends Component<{}, State>{
             email: this.state.logEmail,
             password:this.state.logPassword,
         }
-        console.log("Send login request");
         let response = await fetch('http://localhost:3000/auth/login',{
             method:'POST',
             headers:{

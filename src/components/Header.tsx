@@ -37,7 +37,7 @@ export default class Header extends Component<{}>{
                         <li className="nav-item" style={{ marginLeft: '350px' }}>
 
 
-                              {localStorage.getItem('token') !==''? <div>
+                              {localStorage.getItem('token') !== '' || localStorage.getItem('token') === null? <div>
                             <div style={{ textAlign: 'center' }}>
                             <Link to='/profile'><img src={localStorage.getItem('user.profile_pic')} alt="" style={{ width: '60px', height: '60px', borderRadius: '50%' }} /></Link>
                             <h4>{localStorage.getItem('user.name')}</h4>
