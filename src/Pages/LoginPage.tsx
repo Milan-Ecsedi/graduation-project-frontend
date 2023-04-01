@@ -1,5 +1,5 @@
 import { Component} from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, redirect, useNavigate} from "react-router-dom";
 import Footer from "../components/Footer";
 import Logo from "../images/gritos_logo.png"
 import "bootstrap/dist/css/bootstrap.css"
@@ -11,8 +11,9 @@ import { TokenObj } from "../token";
 interface State{
     message: string[];
     logEmail: string;
-    logPassword:string;    
+    logPassword:string;
 }
+
 interface userData{
     id:number;
     username: string;
@@ -32,8 +33,8 @@ export default class LoginPage extends Component<{}, State>{
         }
     }
 
-
  handleLogin = async ()=> {
+    const navigate= useNavigate()
 
     if(this.state.logEmail.trim()&& this.state.logPassword === '' ){
         this.setState({message:['A bejelentkezési adatokat kötelező kitölteni']})
@@ -58,14 +59,12 @@ export default class LoginPage extends Component<{}, State>{
             this.setState({
                 message:['Sikeresen bejelentkezett']
             })
-            
-            
+        
+        
             localStorage.setItem('token', res.token)
             this.handleUserDataStorageLoad()
+              
         }
-
-
-
     }
 
 }
