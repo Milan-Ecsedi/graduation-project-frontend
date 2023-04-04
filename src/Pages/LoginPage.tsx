@@ -34,13 +34,11 @@ export default class LoginPage extends Component<{}, State>{
     }
 
  handleLogin = async ()=> {
-    const navigate= useNavigate()
+    
 
-    if(this.state.logEmail.trim()&& this.state.logPassword === '' ){
+    if(this.state.logEmail.trim() && this.state.logPassword === '' ){
         this.setState({message:['A bejelentkezési adatokat kötelező kitölteni']})
-        return;
-    }
-    else{
+    } else{
         const data={
             email: this.state.logEmail,
             password:this.state.logPassword,
@@ -53,18 +51,23 @@ export default class LoginPage extends Component<{}, State>{
             body: JSON.stringify(data),
         });
         console.log(response)
-        if(response.ok){
-            const res= await response.json() as TokenObj
+        if(!response.ok){
+             const res= await response.json() as ResponseMess
+            this.setState({message: res.message})
+        }else{
+           
             
+            const res= await response.json() as TokenObj
+            localStorage.setItem('token', res.token)
+            this.handleUserDataStorageLoad()   
             this.setState({
                 message:['Sikeresen bejelentkezett']
             })
-        
-        
-            localStorage.setItem('token', res.token)
-            this.handleUserDataStorageLoad()
-              
         }
+
+       
+            
+        
     }
 
 }
@@ -99,7 +102,7 @@ render() {
     <p>Jelszó:</p>
     <input type="password" value={this.state.logPassword} onChange={e => this.setState({logPassword: e.currentTarget.value})}/> <br/>
 
-    <button className='btn btn-success grow' onClick={this.handleLogin}>Bejelentkezés</button>
+    <button  className='btn btn-success grow' onClick={this.handleLogin}>Bejelentkezés</button>
     <MessageBox message={this.state.message}></MessageBox>
     <p>Nincs még Fiókod?<Link to='/register'>Itt</Link> elkészítheted</p>
     </div>

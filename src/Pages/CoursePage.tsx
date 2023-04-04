@@ -26,6 +26,25 @@ export default function CoursePage() {
         
     }, [courseId])
 
+/*    async function sendApplyRequest(urlId: string){
+    const data={
+        id: urlId
+    }
+
+    let response= await fetch('http://localhost:3000/applied-user/join',{
+        method:'POST',
+        headers:{
+            'Authorization':'Bearer '+ localStorage.getItem('token'),
+            'Content-type':'application/json'
+        },
+        body: JSON.stringify(data),        
+    });
+
+    if(response.ok){
+        console.log('sikerült')
+    }    
+   }
+*/
     return <div>
     <Header></Header>
     <center>
@@ -39,7 +58,7 @@ export default function CoursePage() {
             {course?.details}
             </p>
 
-
+            <button className='btn btn-success grow'>Csatlakozás</button>
            <a href={course?.file_url} className='btn btn-success grow'>Kurzus csomag</a>
            <p>A kurzus lejárati ideje: {course?.deadline}</p>
         </div>

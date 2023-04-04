@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 interface State{
     username: string;
@@ -59,7 +60,7 @@ render(){
         <p>{this.state.email}</p>
 
         {/* <button className="btn btn-warning grow">Adatok módosítása</button> */}
-        <button className="btn btn-danger grow" onClick={this.logout}>Kijelentkezés</button>
+        <Link to='/Login' className="btn btn-danger grow" onClick={this.logout}>Kijelentkezés</Link>
         </div>
         <Footer></Footer>
     </div>
