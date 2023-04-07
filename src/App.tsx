@@ -10,6 +10,7 @@ import CourseListPage from './Pages/CourseListPage';
 import SelectedCourse from './Pages/CoursePage';
 import paramGet from './paramGet';
 import Profile from './Pages/Profile';
+import Test from './Pages/Test';
 
 
 interface State{
@@ -56,6 +57,7 @@ componentDidMount() {
     <Route path='/login' element={<LoginPage></LoginPage>}></Route>
     <Route path='/*' element={<div style={{fontSize:'50px', textAlign:'center'}}>Ez az oldal nem létezik, biztos hogy jól írtad be az url-t? <p style={{fontSize:'500px'}}>🙂</p> </div>}></Route>
     <Route path='/about' element={<About></About>}></Route>
+    <Route path='/test' element={<Test></Test>}></Route>
   </Routes>
   
   </div>

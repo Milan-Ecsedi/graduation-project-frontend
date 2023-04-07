@@ -1,5 +1,5 @@
 import { Component} from "react";
-import { Link, Navigate, redirect, useNavigate} from "react-router-dom";
+import { Link} from "react-router-dom";
 import Footer from "../components/Footer";
 import Logo from "../images/gritos_logo.png"
 import "bootstrap/dist/css/bootstrap.css"
@@ -63,6 +63,9 @@ export default class LoginPage extends Component<{}, State>{
             this.setState({
                 message:['Sikeresen bejelentkezett']
             })
+            window.location.replace('/')
+            
+            
         }
 
        

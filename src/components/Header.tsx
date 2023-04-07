@@ -13,7 +13,7 @@ export default class Header extends Component<{}>{
 
 
         return  <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor: 'rgb(27, 163, 210)', border: 'solid 3px rgb(27, 163, 242)'}}>
-                <Link to='' className="navbar-brand">
+                <Link to='/' className="navbar-brand">
                     <img src={Logo} alt="" style={{ marginLeft: '25px' }} />
                 </Link>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -39,7 +39,7 @@ export default class Header extends Component<{}>{
 
                               {localStorage.getItem('token') !== '' || localStorage.getItem('token') === null? <div>
                             <div style={{ textAlign: 'center' }}>
-                            <Link to='/profile'><img src={localStorage.getItem('user.profile_pic')} alt="" style={{ width: '60px', height: '60px', borderRadius: '50%' }} /></Link>
+                            <Link to='/profile'><img src={localStorage.getItem('user.profile_pic')!} alt="" style={{ width: '60px', height: '60px', borderRadius: '50%' }} /></Link>
                             <h4>{localStorage.getItem('user.name')}</h4>
                              </div>
                             </div> : <div>

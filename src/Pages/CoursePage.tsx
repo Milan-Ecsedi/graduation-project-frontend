@@ -26,9 +26,9 @@ export default function CoursePage() {
         
     }, [courseId])
 
-/*    async function sendApplyRequest(urlId: string){
+    async function sendApplicationRequest() {
     const data={
-        id: urlId
+        id: courseId
     }
 
     let response= await fetch('http://localhost:3000/applied-user/join',{
@@ -40,13 +40,15 @@ export default function CoursePage() {
         body: JSON.stringify(data),        
     });
 
-    if(response.ok){
+    if(response.status == 201){
         console.log('sikerült')
-    }    
+    }   
    }
-*/
+
+
+
     return <div>
-    <Header></Header>
+    <Header/>
     <center>
     <div className="card" style={{width: '800px', marginTop:'5px'}}>
         {course?.cphoto===''? <img src="https://attachment.eab.com/wp-content/uploads/2021/08/Illustration-dei-light-background.png" alt=""/>:<img src={course?.cphoto} alt="Kurzus kép" className="card-image-top"/>}
@@ -58,13 +60,13 @@ export default function CoursePage() {
             {course?.details}
             </p>
 
-            <button className='btn btn-success grow'>Csatlakozás</button>
+            <button className='btn btn-success grow' onClick={sendApplicationRequest}>Csatlakozás</button>
            <a href={course?.file_url} className='btn btn-success grow'>Kurzus csomag</a>
            <p>A kurzus lejárati ideje: {course?.deadline}</p>
         </div>
     </div>
     </center>
-    <Footer></Footer>
+    <Footer/>
 </div>
 }
 

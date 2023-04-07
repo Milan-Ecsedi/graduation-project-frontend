@@ -22,11 +22,6 @@ export default class Profile extends Component<{}, State>{
     }
     
 handleProfileLoad= ()=>{
-
-            this.setState({
-            username:localStorage.getItem('user.name')!,
-            profile_pic:localStorage.getItem('user.profile_pic')!
-        })
 }
 
 logout = async ()=>{
@@ -42,6 +37,7 @@ logout = async ()=>{
             localStorage.setItem('token','')
             localStorage.setItem('user.name', '')
             localStorage.setItem('user.profile_pic','')
+            window.location.replace('/login')
         }
 }
 
@@ -55,14 +51,25 @@ render(){
 
     return <div>
         <div style={{backgroundColor:'white', borderRadius:'10px', textAlign:'center'}}>
-        <img src= {localStorage.getItem('user.profile_pic')} alt="Profil kép" style={{height:'200px', width:'200px' ,borderRadius:'50%'}} />
-        <h3>{localStorage.getItem('user.name')}</h3>
-        <p>{this.state.email}</p>
+        <img src = {localStorage.getItem('user.profile_pic')!} 
+        alt="Profil kép" 
+        style={{height:'200px', width:'200px' ,borderRadius:'50%'}} />
+        
+        <h3>
+            {localStorage.getItem('user.name')}
+        </h3>
+        
+        <p>
+            {this.state.email}
+        </p>
 
         {/* <button className="btn btn-warning grow">Adatok módosítása</button> */}
-        <Link to='/Login' className="btn btn-danger grow" onClick={this.logout}>Kijelentkezés</Link>
+        <button  
+        className="btn btn-danger grow" 
+        onClick={this.logout}>Kijelentkezés</button>
+        
         </div>
-        <Footer></Footer>
+        <Footer/>    
     </div>
 }
 
