@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import Logo from '../images/gritos_logo.png';
 import GuestPic from "../images/base_profile_icon.png"
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js"
+import "bootstrap/dist/js/bootstrap.js";
+import {AccountCanvas}  from '../components/AccountCanvas'
 
 export default class Header extends Component<{}>{
 
@@ -39,7 +40,8 @@ export default class Header extends Component<{}>{
 
                               {localStorage.getItem('token') !== '' || localStorage.getItem('token') === null? <div>
                             <div style={{ textAlign: 'center' }}>
-                            <Link to='/profile'><img src={localStorage.getItem('user.profile_pic')!} alt="" style={{ width: '60px', height: '60px', borderRadius: '50%' }} /></Link>
+                            {/* <Link to='/profile'><img src={localStorage.getItem('user.profile_pic')!} alt="" style={{ width: '60px', height: '60px', borderRadius: '50%' }} /></Link> */}
+                            <AccountCanvas/>
                             <h4>{localStorage.getItem('user.name')}</h4>
                              </div>
                             </div> : <div>

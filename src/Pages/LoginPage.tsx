@@ -86,6 +86,7 @@ handleUserDataStorageLoad =  async ()=>{
     localStorage.setItem('user.id', data.id.toString())
     localStorage.setItem('user.name', data.username)
     localStorage.setItem('user.profile_pic', data.profile_pic)
+    localStorage.setItem('user.email', data.email)
    
  }
 

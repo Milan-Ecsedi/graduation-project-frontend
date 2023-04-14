@@ -6,6 +6,7 @@ interface State{
     username: string;
     profile_pic: string;
     email:string;
+    editprofile: boolean;
 }
 
 export default class Profile extends Component<{}, State>{
@@ -16,7 +17,8 @@ export default class Profile extends Component<{}, State>{
         this.state=({
             username: '',
             email:'',
-            profile_pic: ''
+            profile_pic: '',
+            editprofile: false
         })
        
     }
@@ -67,7 +69,9 @@ render(){
         <button  
         className="btn btn-danger grow" 
         onClick={this.logout}>Kijelentkezés</button>
-        
+        <button  
+        className="btn btn-warning grow" 
+        onClick={this.logout}>Profilkép módosítása</button>
         </div>
         <Footer/>    
     </div>

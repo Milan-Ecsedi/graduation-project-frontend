@@ -6,13 +6,12 @@ import "bootstrap/dist/css/bootstrap.css";
 import {useEffect, useState } from "react";
 
 interface State{
-    course:Course[]
 }
 
 export default function CoursePage() {
     const [ course, setCourse ] = useState(null as Course|null);
     const {courseId}=useParams();
-
+    const [isjoined, setIsJoined] = useState(false);
     async function loadSelectedCourse(urlId: string){
         let response=await fetch('http://localhost:3000/course/search/'+urlId)
         let data=await response.json() as Course[]
@@ -22,6 +21,7 @@ export default function CoursePage() {
     useEffect(() => {
         if (courseId) {
             loadSelectedCourse(courseId)
+            isJoined(courseId)
         }
         
     }, [courseId])
@@ -39,12 +39,24 @@ export default function CoursePage() {
         },
         body: JSON.stringify(data),        
     });
-
-    if(response.status == 201){
-        console.log('sikerült')
-    }   
    }
+   async function isJoined(urlId: string){
+    let response= await fetch('http://localhost:3000/applied-user/isJoined/'+urlId, {
+    headers:{
+        'Authorization':'Bearer '+ localStorage.getItem('token')
+    }
+    });
 
+    if(!response.ok)
+    {
+        console.log("not joined")
+        setIsJoined(false)
+    }
+    else{
+        console.log("joined")
+        setIsJoined(true)
+    }
+   }
 
 
     return <div>
@@ -60,9 +72,8 @@ export default function CoursePage() {
             {course?.details}
             </p>
 
-            <button className='btn btn-success grow' onClick={sendApplicationRequest}>Csatlakozás</button>
-           <a href={course?.file_url} className='btn btn-success grow'>Kurzus csomag</a>
-           <p>A kurzus lejárati ideje: {course?.deadline}</p>
+           { isjoined === true ?<a href={course?.file_url} className='btn btn-success grow'>Kurzus csomag</a>:<button className='btn btn-success grow' onClick={sendApplicationRequest}>Csatlakozás</button>}
+           <p>A kurzus lejárati ideje: {course?.deadline}</p>  
         </div>
     </div>
     </center>
