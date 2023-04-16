@@ -91,3 +91,9 @@ footer p {
     width: 799px;
 
 }
+
+.profileInput{
+    border-color: #10d49c;
+    border-radius: 30px;
+    width: 300px;
+}

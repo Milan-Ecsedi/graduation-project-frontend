@@ -16,7 +16,7 @@ interface State{
     logerror: boolean
 }
 
-interface userData{
+export default interface userData{
     id:number;
     username: string;
     email: string;
@@ -87,7 +87,7 @@ export default class LoginPage extends Component<{}, State>{
 
 }
 
-handleUserDataStorageLoad =  async ()=>{
+ handleUserDataStorageLoad =  async ()=>{
 
     let response= await fetch('http://localhost:3000/user/profile',{
         headers: {'Authorization':'Bearer '+localStorage.getItem('token'),

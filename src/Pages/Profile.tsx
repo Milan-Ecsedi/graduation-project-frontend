@@ -4,13 +4,15 @@ import { Link } from "react-router-dom";
 import { Course } from "../Course";
 import CourseCard from "../components/CourseCard";
 import MiniCourseCard from "../components/MiniCourseCard";
+import userData from "./LoginPage";
 
 interface State{
     username: string;
     profile_pic: string;
     email:string;
     editprofile: boolean;
-    coursesByUser: CourseByUser[]
+    coursesByUser: CourseByUser[];
+    pictureUrl: string;
 }
 
 interface CourseByUser{
@@ -30,12 +32,46 @@ export default class Profile extends Component<{}, State>{
             email:'',
             profile_pic: '',
             editprofile: false,
-            coursesByUser: []
+            coursesByUser: [],
+            pictureUrl: ''
         })
        
     }
     
-handleProfileLoad= ()=>{
+handleProfileUpdate= async ()=>{
+
+    const data = {
+        profile_pic: this.state.pictureUrl,
+    }
+
+    if(data.profile_pic===''){
+
+        return;
+    }
+
+    let response= await fetch('http://localhost:3000/user/updateProfile', {
+        method:'PATCH',
+        headers:{
+            'Authorization':'Bearer '+ localStorage.getItem('token'),
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    })
+
+    if(response.ok)
+    {
+        let response= await fetch('http://localhost:3000/user/profile',{
+        headers: {'Authorization':'Bearer '+localStorage.getItem('token'),
+        'content-type':'application/json'}
+    })
+    const data = await response.json() as userData
+    localStorage.setItem('user.profile_pic', data.profile_pic)
+    this.setState({
+        pictureUrl: ''
+    })
+    
+    }
+
 }
 
 logout = async ()=>{
@@ -85,7 +121,14 @@ render(){
         <div style={{backgroundColor:'white', borderRadius:'10px', textAlign:'center', marginBottom:'5px'}}>
         <img src = {localStorage.getItem('user.profile_pic')!} 
         alt="Profil kép" 
-        style={{height:'200px', width:'200px' ,borderRadius:'50%'}} />
+        style={{height:'200px', width:'200px' ,borderRadius:'50%'}} /> <br />
+        
+        <input type="text" className="profileInput" placeholder="Url, Pl: https://gritosprofile.jpg"
+        value={this.state.pictureUrl} onChange={e=> this.setState({pictureUrl: e.currentTarget.value})}/>
+        <br />
+        <button  
+        className="btn btn-warning grow" 
+        onClick={this.handleProfileUpdate}>Profilkép módosítása</button> 
         
         <h3>
             {localStorage.getItem('user.name')}
@@ -97,9 +140,7 @@ render(){
         <button  
         className="btn btn-danger grow" 
         onClick={this.logout}>Kijelentkezés</button>
-        <button  
-        className="btn btn-warning grow" 
-        onClick={this.logout}>Profilkép módosítása</button>
+        
         
         </div>
         <center>
