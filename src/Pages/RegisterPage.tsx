@@ -14,7 +14,8 @@ interface State {
     regPass: string;
     regPass2: string;
     showpw: string;
-
+    regerror: boolean;
+    regsuccesful: boolean;
 }
 
 export default class RegisterPage extends Component<{}, State>{
@@ -29,21 +30,32 @@ export default class RegisterPage extends Component<{}, State>{
             regEmail: '',
             regPass: '',
             regPass2: '',
-            showpw: 'password'
+            showpw: 'password',
+            regerror: false,
+            regsuccesful: false
         }
     }
 
     handleRegister = async () => {
 
         if (this.state.regUser.trim() === '') {
-            this.setState({ message: ['Felhasználó nevet kitölteni kötelező'] })
+            this.setState({ 
+                message: ['Felhasználó nevet kitölteni kötelező'],
+                regerror: true
+         })
             return;
         } else if (this.state.regPass === '') {
-            this.setState({ message: ['A jelszó nem lehet üres' ]})
+            this.setState({ 
+                message: ['A jelszó nem lehet üres' ],
+                regerror: true
+        })
             return;
         }
         else if (this.state.regPass !== this.state.regPass2) {
-            this.setState({ message: ['Az ismétlő jelszó nem egyezik a jelszóval'] })
+            this.setState({
+                message: ['Az ismétlő jelszó nem egyezik a jelszóval'],
+                regerror: true
+            })
             return;
         }
         else {
@@ -68,11 +80,18 @@ export default class RegisterPage extends Component<{}, State>{
                     regPass: '',
                     regPass2: ''
                 })
-                this.setState({ message: ['Sikeres regisztráció']})
+                this.setState({
+                    regerror: false,
+                    regsuccesful: true
+                })
+                window.location.replace('/login')
             }
             else{
                 const res= await response.json() as ResponseMess
-                this.setState({message: res.message})
+                this.setState({
+                    message: res.message,
+                    regerror:true
+                })
             }
         }
 
@@ -97,7 +116,9 @@ export default class RegisterPage extends Component<{}, State>{
             <p>Jelszó mégegyszer:</p>
             <input type={this.state.showpw} value={this.state.regPass2} onChange={e => this.setState({ regPass2: e.currentTarget.value })} /><br />
             <button className='btn btn-success grow' onClick={this.handleRegister}>Regisztrálás</button>
-            <MessageBox message={this.state.message}></MessageBox>
+            {/* <MessageBox message={this.state.message}></MessageBox> */}
+            {this.state.regerror===true ? <div className="alert alert-danger" role="alert">{this.state.message}</div> : null}
+            {this.state.regsuccesful=== true ? <div className="alert alert-success" role="alert">Sikeres Regisztráció</div>: null}
             <p>Van már Fiókod?<Link to='/login'>Itt</Link> bejelentkezhetsz</p>
             </div>
             </center>

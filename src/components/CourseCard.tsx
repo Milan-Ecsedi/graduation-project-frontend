@@ -23,8 +23,7 @@ render(): ReactNode {
 return  <div style={{textAlign:'center'}}>
 <center>
 <div className="card" style={{width: '800px', marginTop:'5px'}}>
-        {/*<p>Borítókép ehez a kurzushoz nem lett feltöltve</p>*/}
-{this.props.course.cphoto === '' ?  <img src="https://attachment.eab.com/wp-content/uploads/2021/08/Illustration-dei-light-background.png" alt=""/>  : <img className="card-image-top" src={this.props.course.cphoto} alt="Borítókép"/>}
+{this.props.course.cphoto === '' ?  <img className="card-image-top" src="https://attachment.eab.com/wp-content/uploads/2021/08/Illustration-dei-light-background.png" alt=""/>  : <img className="card-image-top" src={this.props.course.cphoto} alt="Borítókép"/>}
 <div className="card-body courseCard">
 <h4 className="card-title">{this.props.course.name}</h4>
 <p className="card-text">{this.props.course.description}</p>

@@ -12,6 +12,8 @@ interface State{
     message: string[];
     logEmail: string;
     logPassword:string;
+    logined: boolean
+    logerror: boolean
 }
 
 interface userData{
@@ -30,14 +32,19 @@ export default class LoginPage extends Component<{}, State>{
             logEmail:'',
             logPassword:'',
             message:[],
+            logined: false,
+            logerror: false
         }
     }
 
  handleLogin = async ()=> {
     
 
-    if(this.state.logEmail.trim() && this.state.logPassword === '' ){
-        this.setState({message:['A bejelentkezési adatokat kötelező kitölteni']})
+    if(this.state.logEmail.trim() ==='' || this.state.logPassword === '' ){
+        this.setState({
+            message:['A bejelentkezési adatokat kötelező kitölteni'],
+            logerror: true
+    })
     } else{
         const data={
             email: this.state.logEmail,
@@ -53,7 +60,11 @@ export default class LoginPage extends Component<{}, State>{
         console.log(response)
         if(!response.ok){
              const res= await response.json() as ResponseMess
-            this.setState({message: res.message})
+            this.setState({
+                message: res.message,
+                logerror: true
+            })
+
         }else{
            
             
@@ -61,7 +72,8 @@ export default class LoginPage extends Component<{}, State>{
             localStorage.setItem('token', res.token)
             this.handleUserDataStorageLoad()   
             this.setState({
-                message:['Sikeresen bejelentkezett']
+                logined: true, 
+                logerror:false         
             })
             window.location.replace('/')
             
@@ -107,7 +119,10 @@ render() {
     <input type="password" value={this.state.logPassword} onChange={e => this.setState({logPassword: e.currentTarget.value})}/> <br/>
 
     <button  className='btn btn-success grow' onClick={this.handleLogin}>Bejelentkezés</button>
-    <MessageBox message={this.state.message}></MessageBox>
+    {/* <MessageBox message={this.state.message}></MessageBox> */}
+    
+    {this.state.logerror === true ?  <div className="alert alert-danger" role="alert">{this.state.message}</div> : null}
+    {this.state.logined===true ? <div className="alert alert-success" role="alert">Sikeres Bejelentkezés</div> : null}
     <p>Nincs még Fiókod?<Link to='/register'>Itt</Link> elkészítheted</p>
     </div>
     </center>

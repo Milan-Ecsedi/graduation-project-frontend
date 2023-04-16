@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import { Link } from "react-router-dom";
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { Link } from 'react-router-dom';
 
-export function AccountCanvas() {
+
+export function AccountCanvas({...props}) {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -16,16 +15,16 @@ export function AccountCanvas() {
         Launch
       </Button> */}
 
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Profil</Offcanvas.Title>
+          <Offcanvas.Title>Fiók</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
         <div style={{textAlign:'center'}}>
         <img src={localStorage.getItem('user.profile_pic')!} alt="profile pic"  onClick={handleShow}  style={{ width: '110px', height: '110px', borderRadius: '50%' }}/>
         <h2>{localStorage.getItem('user.name')}</h2>
         <p>{localStorage.getItem('user.email')}</p>
-        <Link to='/profile' className='btn btn-success grow'>Profil megtekintése</Link>
+        <Link to='/profile' className='btn btn-success grow'>Fiók megtekintése</Link>
         </div>
         </Offcanvas.Body>
       </Offcanvas>

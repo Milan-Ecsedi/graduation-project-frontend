@@ -5,13 +5,16 @@ import { Course } from "../Course";
 import "bootstrap/dist/css/bootstrap.css";
 import {useEffect, useState } from "react";
 
-interface State{
+interface CheckJoined{
+    joined:boolean
 }
 
 export default function CoursePage() {
     const [ course, setCourse ] = useState(null as Course|null);
     const {courseId}=useParams();
     const [isjoined, setIsJoined] = useState(false);
+
+
     async function loadSelectedCourse(urlId: string){
         let response=await fetch('http://localhost:3000/course/search/'+urlId)
         let data=await response.json() as Course[]
@@ -39,7 +42,13 @@ export default function CoursePage() {
         },
         body: JSON.stringify(data),        
     });
+
+    if(response.status == 201){
+        await isJoined(courseId!)
+    }
    }
+
+
    async function isJoined(urlId: string){
     let response= await fetch('http://localhost:3000/applied-user/isJoined/'+urlId, {
     headers:{
@@ -47,15 +56,8 @@ export default function CoursePage() {
     }
     });
 
-    if(!response.ok)
-    {
-        console.log("not joined")
-        setIsJoined(false)
-    }
-    else{
-        console.log("joined")
-        setIsJoined(true)
-    }
+    let data= await response.json() as CheckJoined
+    setIsJoined(data.joined)
    }
 
 
@@ -72,7 +74,7 @@ export default function CoursePage() {
             {course?.details}
             </p>
 
-           { isjoined === true ?<a href={course?.file_url} className='btn btn-success grow'>Kurzus csomag</a>:<button className='btn btn-success grow' onClick={sendApplicationRequest}>Csatlakozás</button>}
+           { isjoined === true ? <a href={course?.file_url} className='btn btn-success grow'>Kurzus csomag</a>:<button className='btn btn-success grow' onClick={sendApplicationRequest}>Csatlakozás</button>}
            <p>A kurzus lejárati ideje: {course?.deadline}</p>  
         </div>
     </div>
