@@ -8,6 +8,12 @@ import MessageBox from "../components/MessageBox";
 import { TokenObj } from "../token";
 
 
+/**
+ *message-be tárolüdik el a megfelelő hiba üzenet
+ *logEmail,logPassword a bejelentkezés adatokat tárolja el
+ *logined boolean-ként eltárolja ha a felhasználó bejelentkezése sikeres, ez alapján jeleníti meg a megfelelő alert-et
+ *logerror boolean-ként eltárolja ha a felhasználó bejelentkezése sikertelen, ez alapján jeleníti meg a megfelelő alert-et
+ */
 interface State{
     message: string[];
     logEmail: string;
@@ -16,6 +22,9 @@ interface State{
     logerror: boolean
 }
 
+/**
+ * egy userData interface ami a response-ból kapott json objektumhoz illeszkedik
+ */
 export default interface userData{
     id:number;
     username: string;
@@ -37,6 +46,11 @@ export default class LoginPage extends Component<{}, State>{
         }
     }
 
+    /**
+     * Az adatok validását hajtja végre, frontend-en és backend-en
+     * A megfelelő üzenetet adja vissza az alert box-ba
+     * Ha sikeres volt a bejelntkezés, meghívja a handleUserDataStorageLoad function-t és át dob a főoldalra
+     */
  handleLogin = async ()=> {
     
 
@@ -87,6 +101,11 @@ export default class LoginPage extends Component<{}, State>{
 
 }
 
+
+/**
+ * Egy segéd függvény ami a localStorage-ba eltárolja a felhasználó adatját, jelszó kivételével
+ * Kér egy token-t a backend-től és azt is eltárolja
+ */
  handleUserDataStorageLoad =  async ()=>{
 
     let response= await fetch('http://localhost:3000/user/profile',{

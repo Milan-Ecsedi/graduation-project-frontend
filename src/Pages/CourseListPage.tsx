@@ -7,6 +7,11 @@ import { Course } from '../Course';
 import delay from '../delay';
 
 
+/**
+ * courses tömb objektum felel a kurzusok eltárolásról
+ * load felel a betöltés illetve a loading spinner megfelelő működésért
+ * errormess felel a hiba üzenetért ha nem volt sikeres a betöltés
+ */
 
 interface State{
     courses: Course[];
@@ -26,6 +31,11 @@ interface State{
       }
     }
   
+
+    /**
+     * Backendtől lekéri a kurzusokat egy Course tipusú "courses" nevű array-be
+     * Egy time delay-el és egy loading spinner-el van ellátva a megfelelő betöltéshez 
+     */
       async loadCourses(){
         
         let response=await fetch('http://localhost:3000/course/list')
@@ -49,16 +59,16 @@ interface State{
     }
     
     componentDidMount() {
-      
-
-
       this.loadCourses()
-      
-      
       
     }
 
 
+    /**
+     * 
+     * @returns Kurzusokat ha betöltött
+     * Leveszi a loading screen-t ha sikeres volt a lekérés
+     */
     render(){
 
         return <div>

@@ -6,6 +6,10 @@ import CourseCard from "../components/CourseCard";
 import MiniCourseCard from "../components/MiniCourseCard";
 import userData from "./LoginPage";
 
+
+/**
+ * 
+ */
 interface State{
     username: string;
     profile_pic: string;
@@ -14,6 +18,7 @@ interface State{
     coursesByUser: CourseByUser[];
     pictureUrl: string;
 }
+
 
 interface CourseByUser{
 
@@ -38,6 +43,7 @@ export default class Profile extends Component<{}, State>{
        
     }
     
+
 handleProfileUpdate= async ()=>{
 
     const data = {

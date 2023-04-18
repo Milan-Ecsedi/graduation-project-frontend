@@ -6,7 +6,12 @@ import Logo from '../images/gritos_logo.png';
 import { ResponseMess } from "../response";
 import "bootstrap/dist/css/bootstrap.css"
 
-
+/**
+ * message-be tárolódik el a backendtől vissza kapott response üzenet
+ * regUser , regEmail , regPass , regPass2 a regisztrációs adatok eltárolásáért felel
+ * regerror boolean a hibás regisztrációs alert megjelenítésért felel
+ * regsuccesful boolean a sikeres regisztrációs alert megjelenítésértfele
+ */
 interface State {
     message: string[];
     regUser: string;
@@ -36,6 +41,12 @@ export default class RegisterPage extends Component<{}, State>{
         }
     }
 
+    /**
+     * 
+     * Validációt végez frontend-en és backend-en egyaránt
+     * Ha átment minden adat a validáción létrehoz egy felhasználót a megadott adatok alapján
+     * Regisztráció után átdob a login oldalra 
+     */
     handleRegister = async () => {
 
         if (this.state.regUser.trim() === '') {

@@ -10,11 +10,22 @@ interface CheckJoined{
 }
 
 export default function CoursePage() {
+
+    /**
+     * course objektum-ba tárolódik a kiválasztott kurzus
+     * courseId-ba kerül az url-ből kiszedett kurzus azonosítója
+     * joined boolean tipusú változó felel a felhasználó jelentkezett-e a kurzusra
+     */
     const [ course, setCourse ] = useState(null as Course|null);
     const {courseId}=useParams();
     const [isjoined, setIsJoined] = useState(false);
 
 
+    /**
+     * Lekérí backend-ről @UrlId alapján a megfelelő kurzust
+     * 
+     * @param urlId a url-ből kiszedett azonosító string-ként
+     */
     async function loadSelectedCourse(urlId: string){
         let response=await fetch('http://localhost:3000/course/search/'+urlId)
         let data=await response.json() as Course[]
@@ -29,6 +40,11 @@ export default function CoursePage() {
         
     }, [courseId])
 
+
+    /**
+     * A felhasználó jelentkezés elküldéséért felel
+     * Ha a response status 201, meghívja az isJoined function-t
+     */
     async function sendApplicationRequest() {
     const data={
         id: courseId
@@ -49,6 +65,10 @@ export default function CoursePage() {
    }
 
 
+   /**
+    * A backend-től vissza kapott válasz alapján eldönti hogy a felhasználó jelentkezett-e 
+    * @param urlId a url-ből kiszedett azonosító string-ként
+    */
    async function isJoined(urlId: string){
     let response= await fetch('http://localhost:3000/applied-user/isJoined/'+urlId, {
     headers:{
@@ -61,6 +81,10 @@ export default function CoursePage() {
    }
 
 
+   /**
+    * Vissza küldi a kiválasztott kurzust és oldalt
+    * isJoined boolean itt kerül eldöntésre és a megfelelő gombot adja vissza
+    */
     return <div>
     <Header/>
     <center>

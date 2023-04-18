@@ -17,6 +17,7 @@ interface State{
   courses: Course[];
 }
 
+
 export default class App extends Component<{},State>{
 
   constructor(props:{}){
@@ -29,6 +30,9 @@ export default class App extends Component<{},State>{
     }
 
 
+    /**
+     * Backendtől lekéri a kurzusokat egy Course tipusú "courses" nevű array-be
+     */
 async loadCourses(){
     let response=await fetch('http://localhost:3000/course/list')
     let data=await response.json() as Course[]
@@ -46,6 +50,12 @@ componentDidMount() {
   
   
 }
+
+
+/**
+ * 
+ * @returns  megfelelő component-et a route alapján
+ */
  render(): React.ReactNode{
  return <div>
   <Routes>
