@@ -5,6 +5,7 @@ import { Course } from "../Course";
 import "bootstrap/dist/css/bootstrap.css";
 import {useEffect, useState } from "react";
 
+
 interface CheckJoined{
     joined:boolean
 }

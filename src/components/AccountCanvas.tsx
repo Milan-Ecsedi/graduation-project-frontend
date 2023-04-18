@@ -3,6 +3,10 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { Link } from 'react-router-dom';
 
 
+/**
+ * balról kicsúszó oldal lap
+ * Itt megjelenik pluszba a felhasználó email címe és egy gomb a profil oldalára
+ */
 export function AccountCanvas({...props}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -11,10 +15,6 @@ export function AccountCanvas({...props}) {
   return (
     <>
     <img src={localStorage.getItem('user.profile_pic')!} alt="profile pic"  onClick={handleShow}  style={{ width: '80px', height: '80px', borderRadius: '50%' }}/>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch
-      </Button> */}
-
       <Offcanvas show={show} onHide={handleClose} {...props}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Fiók</Offcanvas.Title>

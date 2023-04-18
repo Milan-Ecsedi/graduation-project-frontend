@@ -70,12 +70,12 @@ handleProfileUpdate= async ()=>{
         headers: {'Authorization':'Bearer '+localStorage.getItem('token'),
         'content-type':'application/json'}
     })
-    const data = await response.json() as userData
-    localStorage.setItem('user.profile_pic', data.profile_pic)
+    const responsedata = await response.json() as userData
     this.setState({
         pictureUrl: ''
     })
-    
+
+    localStorage.setItem('user.profile_pic', await responsedata.profile_pic)
     }
 
 }

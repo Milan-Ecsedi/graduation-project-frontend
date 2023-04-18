@@ -1,7 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
-import MessageBox from "../components/MessageBox";
 import Logo from '../images/gritos_logo.png';
 import { ResponseMess } from "../response";
 import "bootstrap/dist/css/bootstrap.css"
@@ -127,7 +126,6 @@ export default class RegisterPage extends Component<{}, State>{
             <p>Jelszó mégegyszer:</p>
             <input type={this.state.showpw} value={this.state.regPass2} onChange={e => this.setState({ regPass2: e.currentTarget.value })} /><br />
             <button className='btn btn-success grow' onClick={this.handleRegister}>Regisztrálás</button>
-            {/* <MessageBox message={this.state.message}></MessageBox> */}
             {this.state.regerror===true ? <div className="alert alert-danger" role="alert">{this.state.message}</div> : null}
             {this.state.regsuccesful=== true ? <div className="alert alert-success" role="alert">Sikeres Regisztráció</div>: null}
             <p>Van már Fiókod?<Link to='/login'>Itt</Link> bejelentkezhetsz</p>

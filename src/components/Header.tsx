@@ -6,6 +6,11 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import { AccountCanvas } from "./AccountCanvas";
 
+/**
+ * 
+ * Fejléc, bejelentkezett vagy a vendég változatot tölti be az alapján hogy a token üres-e
+ * Itt használódik fel az AccountCanvas componens, ha a felhasználó be van jelentkezve
+ */
 export default class Header extends Component<{}>{
 
 
@@ -44,7 +49,9 @@ export default class Header extends Component<{}>{
                             <AccountCanvas key={'end'} placement={'end'} name={'end'} />
                             <h4>{localStorage.getItem('user.name')}</h4>
                              </div>
-                            </div> : <div>
+                            </div> 
+                            : 
+                            <div>
                               <img src={GuestPic}alt="" style={{ width: '60px', height: '60px', marginLeft: '85px', borderRadius: '50%' }} />
                               <div style={{ textAlign: 'center' }}>
                                 <h4>Vendég</h4>

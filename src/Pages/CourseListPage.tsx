@@ -12,13 +12,16 @@ import delay from '../delay';
  * load felel a betöltés illetve a loading spinner megfelelő működésért
  * errormess felel a hiba üzenetért ha nem volt sikeres a betöltés
  */
-
 interface State{
     courses: Course[];
     load:boolean;
     errormess:string[];
   }
-  
+    /**
+     * 
+     * Kurzusokat ad vissza ha betöltött
+     * Leveszi a loading screen-t ha sikeres volt a kérés
+     */
   export default class CourseListPage extends Component<{},State>{
   
     constructor(props:{}){
@@ -64,11 +67,7 @@ interface State{
     }
 
 
-    /**
-     * 
-     * @returns Kurzusokat ha betöltött
-     * Leveszi a loading screen-t ha sikeres volt a lekérés
-     */
+    
     render(){
 
         return <div>

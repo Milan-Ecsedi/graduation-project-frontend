@@ -2,11 +2,18 @@ import { Component } from "react";
 import { Course } from "../Course";
 import { Link } from "react-router-dom";
 
+/**
+ * Kivűlről kapott jelentkezési dátum és egy kurzus objektum
+ */
 interface Props{
 apply_date: string
 course: Course
 }
 
+/**
+ * Profil oldalon jelenik meg, egy kissebb változata a CourseCard-nak
+ * megjeleníti a kurzust tömörebb változatban és kírja a csatlakozási dátumot 
+ */
 export default class MiniCourseCard extends Component<Props>{
 
 render(){

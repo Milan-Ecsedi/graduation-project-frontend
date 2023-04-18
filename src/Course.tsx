@@ -1,3 +1,7 @@
+/**
+ * Interface ami illeszkedik a response-ból vissza kapott json adat objektumhoz
+ * 
+ */
 export interface Course {
   id:number;
   name:string;

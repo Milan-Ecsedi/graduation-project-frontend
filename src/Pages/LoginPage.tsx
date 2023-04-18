@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import Logo from "../images/gritos_logo.png"
 import "bootstrap/dist/css/bootstrap.css"
 import { ResponseMess } from "../response";
-import MessageBox from "../components/MessageBox";
 import { TokenObj } from "../token";
 
 
@@ -49,7 +48,7 @@ export default class LoginPage extends Component<{}, State>{
     /**
      * Az adatok validását hajtja végre, frontend-en és backend-en
      * A megfelelő üzenetet adja vissza az alert box-ba
-     * Ha sikeres volt a bejelntkezés, meghívja a handleUserDataStorageLoad function-t és át dob a főoldalra
+     * Ha sikeres volt a bejelentkezés, meghívja a handleUserDataStorageLoad function-t és át dob a főoldalra
      */
  handleLogin = async ()=> {
     
@@ -105,6 +104,7 @@ export default class LoginPage extends Component<{}, State>{
 /**
  * Egy segéd függvény ami a localStorage-ba eltárolja a felhasználó adatját, jelszó kivételével
  * Kér egy token-t a backend-től és azt is eltárolja
+ * A függvény lefutása után a localStorage eltárolás miatt azokat az adatokat felhasználja az egész alkalmazás legtöbb helyen 
  */
  handleUserDataStorageLoad =  async ()=>{
 
