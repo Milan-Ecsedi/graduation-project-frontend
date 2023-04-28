@@ -1,3 +1,7 @@
+<p align="center">
+<img src="../src/images/gritos_logo.png">
+</p>
+
 # Description
 
 A frontend application coded in React.js, A course web browser app.
@@ -5,7 +9,7 @@ A frontend application coded in React.js, A course web browser app.
 ## Requirements
 -NodeJS 18.16(LTS) or higher <br>
 -CLI<br>
-[backend-side application](https://github.com/Ferret-operator/Graduation_project_backend)
+[Gritos backend-side application](https://github.com/Ferret-operator/Graduation_project_backend)
 
 ## Install
 
