@@ -9,8 +9,8 @@ A frontend application coded in React.js, course web browser app. Recommended to
 ## Requirements
 -NodeJS 18.16(LTS) or higher <br>
 -CLI<br>
--Compatible Web browser(Google Chrome, Opera, Edge)
-[Gritos backend-side application](https://github.com/Ferret-operator/Graduation_project_backend)
+-Compatible Web browser(Google Chrome, Opera, Edge)<br>
+-[Gritos backend-side application](https://github.com/Ferret-operator/Graduation_project_backend)
 
 
 ## Install
