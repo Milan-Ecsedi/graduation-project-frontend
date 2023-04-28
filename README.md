@@ -20,6 +20,10 @@ A frontend application coded in React.js, A course web browser app.
 # usual mode
 $ npm run start
 ```
+# Documentation
+
+You can find the documentation in docs/index.html
+Written in hungarian
 
 # React things
 
