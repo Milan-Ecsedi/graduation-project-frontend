@@ -4,12 +4,14 @@
 
 # Description
 
-A frontend application coded in React.js, A course web browser app.
+A frontend application coded in React.js, course web browser app. Recommended to use only on Computer, not 100% responsive. 
 
 ## Requirements
 -NodeJS 18.16(LTS) or higher <br>
 -CLI<br>
+-Compatible Web browser(Google Chrome, Opera, Edge)
 [Gritos backend-side application](https://github.com/Ferret-operator/Graduation_project_backend)
+
 
 ## Install
 
@@ -26,7 +28,7 @@ $ npm run start
 ```
 # Documentation
 
-You can find the documentation in docs/index.html
+You can find the documentation in [docs/index.html](./docs/index.html) <br>
 Written in hungarian
 
 # React things
