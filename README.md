@@ -1,22 +1,25 @@
-# Why is this project has been created
+# Description
 
-We wanted to make an application where the people can be students and teachers at the same time.
-Everyone can teach and learn from other people.
+A frontend application coded in React.js, A course web browser app.
 
-## How can i learns
+## Requirements
+-NodeJS 18.16(LTS) or higher <br>
+-CLI<br>
+[backend-side application](https://github.com/Ferret-operator/Graduation_project_backend)
 
-You register a Gritos account, our backend makes it easy. Log in and then you can sign up to various courses.
-The courses has starting date so you must sign up before it expires. 
+## Install
 
-## I want to teach various subjects, how can i publish my courses
+```bash
+# For npm
+ $ npm install
+```
 
-Then you must download our desktop application. For more, see the graduation desktop app.
-Attention.: Your Gritos account must have a Moderator/Admin role. 
+## Running the app
 
-## Can i use the app on my phone
-
-You can but the app is not so responsive right now...We recommend you to download our mobile app.
-Available on android. 
+```bash
+# usual mode
+$ npm run start
+```
 
 # React things
 
