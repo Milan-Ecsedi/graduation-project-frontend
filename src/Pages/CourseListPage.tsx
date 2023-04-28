@@ -35,11 +35,12 @@ interface State{
     }
   
 
+
     /**
-     * Backendtől lekéri a kurzusokat egy Course tipusú "courses" nevű array-be
+     * Backendtől lekéri a kurzusokat egy Course tipusú "courses" nevű tömbe
      * Egy time delay-el és egy loading spinner-el van ellátva a megfelelő betöltéshez 
      */
-      async loadCourses(){
+    async loadCourses(){
         
         let response=await fetch('http://localhost:3000/course/list')
         let data=await response.json() as Course[]

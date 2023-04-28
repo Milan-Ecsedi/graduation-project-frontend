@@ -19,7 +19,9 @@ interface State{
     pictureUrl: string;
 }
 
-
+/**
+ * Interface a felhasználó kurzusaihoz
+ */
 interface CourseByUser{
 
     id: number;
@@ -27,6 +29,9 @@ interface CourseByUser{
     course: Course
 }
 
+/**
+ * Profil oldal , főképp localstorage-ból dolgozik.
+ */
 export default class Profile extends Component<{}, State>{
 
     constructor(props:{}){
@@ -44,6 +49,14 @@ export default class Profile extends Component<{}, State>{
     }
     
 
+    /**
+     * 
+     * A kép módosítása után frissíti a profil adatjait.
+     * Egy string-et vár amit az input mezőből kap,
+     * Egy alap validációt végrehajt ami ellenőrzi hogy a profil_pic változó üres-e.
+     * Localstorage-ba eltárolja a profil kép url-ét,
+     * a végrehajtása után üríti a profil_pic változót
+     */
 handleProfileUpdate= async ()=>{
 
     const data = {
@@ -80,6 +93,10 @@ handleProfileUpdate= async ()=>{
 
 }
 
+/**
+ * Kijelentkezést hajt végre a függvény,
+ * Ha sikeres akkor törli a localstorage tartalmát és betölti a főolalt
+ */
 logout = async ()=>{
 
     let response= await fetch('http://localhost:3000/auth/logout',{
@@ -93,13 +110,17 @@ logout = async ()=>{
             localStorage.setItem('token','')
             localStorage.setItem('user.name', '')
             localStorage.setItem('user.profile_pic','')
-            window.location.replace('/login')
+            window.location.replace('/')
         }
 }
 
+/**
+ * Lekéri a felhasznákó kurzusait,
+ * a vissza kapott adatot eltárolja a coursesByUser tömbe
+ */
 findCoursesByUser= async ()=>{
 
-    let response= await fetch('http://localhost:3000/applied-user/findCourseByUser',{
+    let response= await fetch('http://localhost:3000/applied-user',{
         headers:{
             'Authorization':'Bearer '+ localStorage.getItem('token')
         }

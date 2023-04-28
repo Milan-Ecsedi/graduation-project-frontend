@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "@types/bootstrap": "^5.2.6"
+    "@types/bootstrap": "^5.2.6",
+    "typedoc": "^0.24.6"
   }
 }

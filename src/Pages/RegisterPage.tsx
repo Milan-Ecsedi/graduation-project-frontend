@@ -116,7 +116,7 @@ export default class RegisterPage extends Component<{}, State>{
             <img src={Logo} alt="Gritos logo" />
             <h2>Learn with us</h2>
             <center>
-            <div className="card" style={{width: '400px', marginTop:'5px'}}>
+            <div className="card" style={{width: '400px', marginTop:'5px', marginBottom:'200px'}}>
             <p>Felhasználó név:</p>
             <input type='text' value={this.state.regUser} onChange={e => this.setState({ regUser: e.currentTarget.value })} />
             <p>Email:</p>

@@ -15,7 +15,7 @@ render(): ReactNode {
         <p className="card-text">Ez a project az MDM csapat álltal lett elkészítve.</p>
 
         <p>
-            A Gritos applikáció egy könnyen kezelhető felületet kínál a kurzusok széles választékával, amelyekhez bármikor hozzáférhetnek a felhasználók.
+            A Gritos applikáció egy könnyen kezelhető felületet kínál, kurzusok széles választékával, amelyekhez bármikor hozzáférhetnek a felhasználók.
         Hiszünk abban, hogy ügyfeleinknek kiváló élményt kell nyújtanunk, és folyamatosan törekszünk arra, hogy minden felhasználói élményt még jobbá tegyünk.
         Ezért folyamatosan figyelemmel kísérjük az ügyfelek visszajelzéseit és igényeit, és mindent megteszünk annak érdekében, hogy megfeleljünk ezeknek az elvárásoknak.
         </p> 
@@ -27,13 +27,13 @@ render(): ReactNode {
         <p>
             Felhasználói adatokat bizalmasan megvédjük és nem használjuk fel saját célokra. 
             <br />
-            Illetve nem adjuk ki az adatokat 3.-ik oldalnak
+            Illetve nem adjuk ki az adatokat 3.-ik feleknek
         </p>
         <p>
-        Végezetül szeretném hangsúlyozni, hogy az applikációnk teljes mértékben testreszabható az Önök igényeire, ezért mindig újabb és újabb kurzusokkal bővítjük a kínálatunkat, 
+        Végezetül szeretnénk hangsúlyozni, hogy az applikációnk teljes mértékben testreszabható az Önök igényeire, ezért mindig újabb és újabb kurzusokkal bővítjük a kínálatunkat, 
         hogy mindenki számára a legmegfelelőbb oktatási anyagokat kínálhassuk.
         </p>
-        <h6>DISCLAMER: Nem vállalunk felleősséget az ellopot fiókokért</h6>
+        <h6>DISCLAMER: Nem válalunk felelőséget az eltulajdonított fiókokért</h6>
         <h3>-Ecsedi Milán, Az MDM csapat Frontend fejlesztője</h3>
         
         </div>
